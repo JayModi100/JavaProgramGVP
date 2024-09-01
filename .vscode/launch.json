@@ -1,0 +1,28 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Progarm03",
+            "request": "launch",
+            "mainClass": "Progarm03",
+            "projectName": "JavaProgramGVP_3625a81"
+        },
+        {
+            "type": "java",
+            "name": "pro3",
+            "request": "launch",
+            "mainClass": "pro3",
+            "projectName": "JavaProgramGVP_3625a81"
+        }
+    ]
+}
