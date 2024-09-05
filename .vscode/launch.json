@@ -6,6 +6,34 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Program06",
+            "request": "launch",
+            "mainClass": "Program06",
+            "projectName": "JavaProgramGVP_3625a81"
+        },
+        {
+            "type": "java",
+            "name": "Program05",
+            "request": "launch",
+            "mainClass": "Program05",
+            "projectName": "JavaProgramGVP_3625a81"
+        },
+        {
+            "type": "java",
+            "name": "Program0",
+            "request": "launch",
+            "mainClass": "Program0",
+            "projectName": "JavaProgramGVP_3625a81"
+        },
+        {
+            "type": "java",
+            "name": "MatrixOperations",
+            "request": "launch",
+            "mainClass": "MatrixOperations",
+            "projectName": "JavaProgramGVP_3625a81"
+        },
+        {
+            "type": "java",
             "name": "Program04",
             "request": "launch",
             "mainClass": "Program04",
