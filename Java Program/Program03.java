@@ -41,7 +41,7 @@ import java.util.Scanner;
     }
  }
 
-public class Progarm03 {
+public class Program03 {
     public static void main(String[] args) {
 
         Scanner s = new Scanner(System.in);
