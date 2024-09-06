@@ -4,7 +4,7 @@ constructors) isZero(), isPositive(), isNegative( ), isOdd( ), isEven( ), the ab
 methods return boolean type and getFactorial(), the above method returns
 double type.*/
 
-
+import java.util.Scanner;
 
 class  Number {
     private double value; 
@@ -46,7 +46,10 @@ class  Number {
 public class Program04 {
     public static void main(String[] args) {
 
-        Number n1 = new Number(6);
+        Scanner s = new Scanner(System.in);
+        System.out.print("Enter the Value : ");
+        int value = s.nextInt();
+        Number n1 = new Number(value);
 
         if (n1.isZero()) {
             System.out.println("Value is Zero");
