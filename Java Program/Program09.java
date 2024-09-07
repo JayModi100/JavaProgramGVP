@@ -3,6 +3,9 @@
 // 2) public double perimeter() that calculates and returns circumference/perimeter 
 // of the given shape.
 
+import java.lang.*;
+import java.util.Scanner;
+
 abstract class Shape{
     protected double dimension1;
     protected double dimension2;
@@ -55,12 +58,12 @@ class Triangle extends Shape{
     }
 }
 
-class Circel extends Shape{
-    Circel(){
+class Circelx extends Shape{
+    Circelx(){
         super(2.5,0);
     }
 
-    Circel(double dimension){
+    Circelx(double dimension){
         super(dimension,0);
     }
 
@@ -77,14 +80,61 @@ class Circel extends Shape{
 public class Program09 {
     public static void main(String[] args) {
         
+        Scanner takeInput = new Scanner(System.in);
         Rectangle r1 = new Rectangle();
         Rectangle r2 = new Rectangle(5,5);
         Triangle t1 = new Triangle();
         Triangle t2 = new Triangle(5,6,5);
-        Circel c1 = new Circel();
-        Circel c2 = new Circel(5.6);
+        Circelx c1 = new Circelx();
+        Circelx c2 = new Circelx(5.6);
+        int choice;
 
-       
+
+        while (true) {
+            System.out.println("\n1:Find Area and Perimeter of Rectangle:");
+            System.out.println("2:Find Area and Perimeter of Triangle:");
+            System.out.println("3:Find Area and circumference of Circle:");
+            System.out.println("4:exit");
+            System.out.print("Enetr your choice");  
+            choice = takeInput.nextInt();
+            
+            switch (choice) {
+                case 1:
+                    System.out.println("Detail of Rectangle");
+                    System.out.println("Default constructor  - ");
+                    System.out.println("Area of Rectangle : "+ r1.area());
+                    System.out.println("Perimeter of Rectangle : "+ r1.perimeter());
+                    System.out.println("Parameterized Value - ");
+                    System.out.println("Area of Rectangle : "+ r2.area());
+                    System.out.println("Perimeter of Rectangle : "+ r2.perimeter());
+                    break;
+                case 2:
+                    System.out.println("Detail of Triangle");
+                    System.out.println("Default constructor  - ");
+                    System.out.println("Area of Triangle : "+ t1.area());
+                    System.out.println("Perimeter of Triangle : "+ t1.perimeter());
+                    System.out.println("Parameterized Value - ");
+                    System.out.println("Area of Triangle : "+ t2.area());
+                    System.out.println("Perimeter of Triangle : "+ t2.perimeter());
+                    break;
+                case 3:
+                    System.out.println("Detail of Circle");
+                    System.out.println("Default constructor  - ");
+                    System.out.println("Area of Circle : "+ c1.area());
+                    System.out.println("circumference of Circle : "+ c1.perimeter());
+                    System.out.println("Parameterized Value - ");
+                    System.out.println("Area of Circle : "+ c2.area());
+                    System.out.println("circumference of Circle : "+ c2.perimeter());
+                    break;
+
+                case 4:
+                    System.exit(1);
+            
+                default:
+                System.out.println("Enter valid choice");
+                    break;
+            }
+        }
 
     }
     
