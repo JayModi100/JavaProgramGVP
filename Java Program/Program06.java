@@ -8,6 +8,7 @@
 // 5) Define a method – public double diameter() which is calculate and return 
 // diameter of a circle
 
+import java.lang.Math;
 
 class Circel{
     private double x;
@@ -56,7 +57,7 @@ class Circel{
 public class Program06 {
     public static void main(String[] args) {
         Circel c1 = new Circel();
-        Circel c2 = new Circel(3.5,3.6,2.5);
+        Circel c2 = new Circel(3.5,3.6,4);
         Circel c3 = new Circel(c2);
 
 
