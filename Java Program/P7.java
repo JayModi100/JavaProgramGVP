@@ -57,7 +57,7 @@ class stack{
     }
 }
 
-public class Program07 {
+public class P7 {
     public static void main(String[] args) {
         Scanner takeInput = new Scanner(System.in);
         stack s = new stack(5);
