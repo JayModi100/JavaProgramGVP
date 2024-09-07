@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Program10",
+            "request": "launch",
+            "mainClass": "Program10",
+            "projectName": "JavaProgramGVP_3625a81"
+        },
+        {
+            "type": "java",
+            "name": "Program09",
+            "request": "launch",
+            "mainClass": "Program09",
+            "projectName": "JavaProgramGVP_3625a81"
+        },
+        {
+            "type": "java",
             "name": "Program06",
             "request": "launch",
             "mainClass": "Program06",
