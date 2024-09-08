@@ -1,31 +1,26 @@
 import java.util.Scanner;
 
-class StackException extends Exception {
-    StackException() {
-        super("Something went's wrong..");
+class StackExceptionGenerate extends Exception {
+    StackExceptionGenerate() {
+        super("Something wen't wrong.");
     }
 
-    StackException(String Er) {
-        super(Er);
+    StackExceptionGenerate(String msg) {
+        super(msg);
     }
+
 }
 
 class Stack {
-    int MaxLimit;
-    int top;
-    int[] stack;
+    private int maxLimit;
+    private int top;
+    private int[] stackArr;
     Scanner takeInput = new Scanner(System.in);
 
-    Stack() {
-        this.MaxLimit = 5;
-        this.top = -1;
-        this.stack = new int[this.MaxLimit];
-    }
-
     Stack(int maxLimit) {
-        this.MaxLimit = maxLimit;
+        this.maxLimit = maxLimit;
+        this.stackArr = new int[this.maxLimit];
         this.top = -1;
-        this.stack = new int[this.MaxLimit];
     }
 
     int takeElement() {
@@ -37,12 +32,56 @@ class Stack {
 
     void push() {
         try {
-            if (!(this.top != MaxLimit - 1)) {
+
+            if (!(top == this.maxLimit - 1)) {
                 int element = takeElement();
                 top += 1;
-                this.stack[top] = element;
+                this.stackArr[top] = element;
             } else {
-                throw new StackException("Stack is Overflow");
+                throw new StackExceptionGenerate("Stack is Overflow");
+            }
+        } catch (Exception e) {
+            System.out.println("Error : " + e.getMessage());
+        }
+    }
+
+    int pop() {
+        if (!(this.top == -1)) {
+            int element = this.stackArr[this.top];
+            this.stackArr[this.top] = 0;
+            this.top -= 1;
+            return element;
+        } else {
+
+            return -1;
+        }
+
+    }
+
+    void peek() {
+        try {
+
+            if (this.top == -1) {
+                throw new StackExceptionGenerate("Stack is empty");
+            } else {
+                System.out.println("Top element is : " + (stackArr[top]));
+            }
+        } catch(Exception e){
+            System.out.println("Error : "+e.getMessage());
+        }
+    }
+
+    void traverse() {
+        try {
+
+            if (!(this.top == -1)) {
+                System.out.print("Element of Stack Array - ");
+                for (int i = 0; i <= this.top; i++) {
+                    System.out.print(this.stackArr[i] + "  ");
+                }
+                System.out.println();
+            } else {
+                throw new StackExceptionGenerate("No element is available");
             }
         } catch (Exception e) {
             System.out.println("Error : " + e.getMessage());
@@ -53,29 +92,42 @@ class Stack {
 public class Program12 {
     public static void main(String[] args) {
         Scanner takeInput = new Scanner(System.in);
-        stack s = new stack(5);
+        Stack s = new Stack(5);
         int choice;
-        while(true){
-            System.out.print("Enter your choice : ");
-            choice = takeInput.nextInt();
-            switch(choice){
-                case 1:
-                    s.push();
-                    break;
-                    
-                // case 2:
-                //     int deletedElement = s.pop();
-                //     if(!(deletedElement == -1)){
-                //         System.out.println(deletedElement + " is deleted");
-                //     }else{
-                //         System.out.println("Stack is empty");
-                //     }
-                //     break;
-                    
-                // case 3:
-                //     s.traverse();
-                //     break;
+        try {
+            while (true) {
+                System.out.print("Enter your choice : ");
+                choice = takeInput.nextInt();
+                switch (choice) {
+                    case 1:
+                        s.push();
+                        break;
+
+                    case 2:
+
+                        int deletedElement = s.pop();
+                        if (!(deletedElement == -1)) {
+                            System.out.println(deletedElement + " is deleted");
+                        } else {
+                            throw new StackExceptionGenerate("Stack is underflow");
+                        }
+
+                        break;
+
+                    case 3:
+                        s.peek();
+
+                        break;
+
+                    case 4:
+                        s.traverse();
+                        break;
+                }
             }
+        } catch (Exception e) {
+            System.out.println("Error : " + e.getMessage());
         }
+
     }
+
 }

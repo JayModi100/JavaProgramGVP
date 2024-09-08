@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Prgram12",
+            "request": "launch",
+            "mainClass": "Prgram12",
+            "projectName": "JavaProgramGVP_3625a81"
+        },
+        {
+            "type": "java",
             "name": "P7",
             "request": "launch",
             "mainClass": "P7",
