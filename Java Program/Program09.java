@@ -3,7 +3,6 @@
 // 2) public double perimeter() that calculates and returns circumference/perimeter 
 // of the given shape.
 
-import java.lang.*;
 import java.util.Scanner;
 
 abstract class Shape{

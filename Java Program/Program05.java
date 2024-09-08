@@ -77,10 +77,10 @@ public class Program05 {
 
         //  multiplication of 2 Matrix
         
-        int rowA = matrix1.length;
+        
         int colA = matrix1[0].length;
         int rowB = matrix2.length;
-        int colB = matrix2[0].length;
+        
         if(colA != rowB ){
             System.out.println("Matrix multiplication is not possible. Number of columns in A must be equal to number of rows in B.");
         }else{
