@@ -25,6 +25,16 @@ class Matrix {
         this.data = matrixData;
     }
 
+    public Matrix transpose() {
+        Matrix transposed = new Matrix(this.cols, this.rows);
+        for (int i = 0; i < this.rows; i++) {
+            for (int j = 0; j < this.cols; j++) {
+                transposed.data[j][i] = this.data[i][j];
+            }
+        }
+        return transposed;
+    }
+
     void display() {
         for (int i = 0; i < data.length; i++) {
             for (int j = 0; j < data[0].length; j++) {
@@ -59,7 +69,7 @@ class Matrix {
     }
 
     static Matrix subtraction(Matrix m1,Matrix m2){
-        return m1.add(m2);
+        return m1.sub(m2);
     }
     Matrix mul(Matrix m2){
         Matrix x = new Matrix(m2);
@@ -75,7 +85,7 @@ class Matrix {
     }
 
     static Matrix multiplication(Matrix m1,Matrix m2){
-        return m1.add(m2);
+        return m1.mul(m2);
     }
 
 }
@@ -97,6 +107,11 @@ public class Program08 {
             }
         }
         Matrix m1 = new Matrix(matrixData);
+
+
+        Matrix tran = m1.transpose();
+        System.out.println("Transpose of m1:");
+        tran.display();
 
         System.out.print("Enter the number of rows for matrix m2: ");
         int rows2 = sc.nextInt();
