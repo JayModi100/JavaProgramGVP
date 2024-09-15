@@ -1,93 +1,125 @@
-// Use 2 Matrix and create addition,multiplication,substraction.
+package MCA1;
+
+import java.util.Scanner;
+
 public class Program05 {
 
-    public static void displayMatrix(int matrix[][]) {
-        int row = matrix.length;
-        int col = matrix[0].length;
-        for (int i = 0; i < row; i++) {
-            for (int j = 0; j < col; j++) {
-                System.out.print(matrix[i][j] + "  ");
+    public static int [][]addition(int matrix1[][],int matrix2[][]){
+
+        int row = matrix1.length,col = matrix2[0].length;
+        int [][]result = new int[matrix1.length][matrix2[0].length];
+        for(int i=0;i<row;i++){
+            for(int j=0;j<col;j++){
+                result[i][j] = matrix1[i][j] + matrix2[i][j];
+            }
+        }
+
+        return result;
+    }
+
+    public static int [][]substraction(int matrix1[][],int matrix2[][]){
+
+        int row = matrix1.length,col = matrix2[0].length;
+        int [][]result = new int[matrix1.length][matrix2[0].length];
+        for(int i=0;i<row;i++){
+            for(int j=0;j<col;j++){
+                result[i][j] = matrix1[i][j] - matrix2[i][j];
+            }
+        }
+
+        return result;
+    }
+
+    public static int [][]multiplication(int matrix1[][],int matrix2[][]){
+        int col = matrix1[0].length;
+        int row = matrix2.length;
+
+        int [][]result = new int[row][col];
+        for(int i=0;i<col;i++){
+            for(int j=0;j<row;j++){
+                for(int k=0;k<col;k++){
+                    result[i][j] += matrix1[i][k] * matrix2[k][j];
+                }
+            }
+        }
+
+        return result;
+    }
+
+    public static void display(int matrix[][]){
+        int row = matrix.length,col = matrix[0].length;
+        for(int i=0;i<row;i++){
+            for(int j=0;j<col;j++){
+                System.out.print(matrix[i][j]+"   ");
             }
             System.out.println();
         }
     }
 
-    public static int[][] addition(int matrix1[][], int matrix2[][]) {
-        int matrix[][] = new int[matrix1.length][matrix1[0].length];
-
-        for (int i = 0; i < matrix1.length; i++) {
-            for (int j = 0; j < matrix1[i].length; j++) {
-                matrix[i][j] = matrix1[i][j] + matrix2[i][j];
-            }
-        }
-        return matrix;
-    }
-
-    public static int[][] subtraction(int matrix1[][],int matrix2[][]){
-        int matrix[][] = new int[matrix1.length][matrix1[0].length];
-        for (int i = 0; i < matrix1.length; i++) {
-            for (int j = 0; j < matrix1[i].length; j++) {
-                matrix[i][j] = matrix1[i][j] - matrix2[i][j];
-            }
-        }
-        return matrix;
-    }
-
-    public static int[][]  multiplication(int matrix1[][],int matrix2[][],int colA,int rowB){
-        int matrix[][] = new int[colA][rowB];
-
-        for (int i = 0; i < rowB; i++) {
-            for (int j = 0; j < colA; j++) {
-                for(int k=0;k<colA;k++){
-                    matrix[i][j] += matrix1[i][k] * matrix2[k][j];
-                }
-            }
-        }
-
-        return matrix;
-    }
 
     public static void main(String[] args) {
-        int[][] matrix1 = {
-                { 1, 2, 3 },
-                { 4, 5, 6 },
-                { 7, 8, 9 }
-        };
 
-        int[][] matrix2 = {
-                { 1, 2, 3 },
-                { 4, 5, 6 },
-                { 7, 8, 9 }
-        };
-        System.out.println("Matrix 1 -- ");
-        displayMatrix(matrix1);
+        Scanner s = new Scanner(System.in);
+        System.out.println("--Enter Detail of Matrix 1 : -- ");
+        System.out.print("Enter Rows for Matrix 1 : ");
+        int row = s.nextInt();
+        System.out.print("Enter Cols for Matrix 1 : ");
+        int col = s.nextInt();
+        int [][]matrix1 = new int[row][col];
 
-        System.out.println("Matrix 2 -- ");
-        displayMatrix(matrix2);
-
-        // Addition of 2 Matrix
-        System.out.println("Addition of 2 Matrix : ");
-        int additionOfMatrix[][] = addition(matrix1, matrix2);
-        displayMatrix(additionOfMatrix);
-
-        // subtraction of 2 Matrix
-        System.out.println("Substraction of 2 Matrix : ");
-        int subtractionOfMatrix[][] = subtraction(matrix1,matrix2);
-        displayMatrix(subtractionOfMatrix);
-
-        //  multiplication of 2 Matrix
-        
-        
-        int colA = matrix1[0].length;
-        int rowB = matrix2.length;
-        
-        if(colA != rowB ){
-            System.out.println("Matrix multiplication is not possible. Number of columns in A must be equal to number of rows in B.");
-        }else{
-
-            System.out.println(" Multiplication of 2 Matrix : ");
-            int multiplicationOfMatrix[][] = multiplication(matrix1,matrix2,colA,rowB);
-            displayMatrix(multiplicationOfMatrix);
+        for(int i=0;i<row;i++){
+            for(int j=0;j<col;j++){
+                System.out.printf("Enter Value of Matrix1[%d][%d] : ",i,j);
+                matrix1[i][j] = s.nextInt();
+            }
         }
+
+        System.out.println("--Detail of Matrix 2 -- ");
+        System.out.print("Enter the row of Matrix2 : ");
+        int row2 = s.nextInt();
+        System.out.print("Enter the col of Matrix2 : ");
+        int col2 = s.nextInt();
+
+        int [][]matrix2 = new int[row2][col2];
+
+        for(int i=0;i<row2;i++){
+            for(int j=0;j<col2;j++){
+                System.out.printf("Enter value of Matrix2[%d][%d] : ",i,j);
+                matrix2[i][j] = s.nextInt();
+            }
+        }
+
+        System.out.println("Matrix 1 : ");
+        display(matrix1);
+        System.out.println("Matrix 2 : ");
+        display(matrix2);
+
+
+
+        if((row == row2) && (col == col2)){
+            int [][]additionMatrix = addition(matrix1,matrix2);
+            System.out.println("Addition of Matrix : ");
+            display(additionMatrix);
+        }else{
+            System.out.println("Error : Both Matrix must be Same Size..");
+        }
+        if((row == row2) && (col == col2)){
+            int [][]substraction = substraction(matrix1,matrix2);
+            System.out.println("Substration of Matrix : ");
+            display(substraction);
+        }else{
+            System.out.println("Error : Both Matrix must be Same Size..");
+        }
+        if((col == row2)) {
+            int [][]multiplicationMatrix = multiplication(matrix1, matrix2);
+            System.out.println("Multiplication of Matrix : ");
+            display(multiplicationMatrix);
+
+        }else{
+                System.out.println("Error : Column of Matrix1 and Row of Matrix2 Must be same");
+            }
+
+
+
     }
 }
