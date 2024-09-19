@@ -59,7 +59,9 @@ public class Program05 {
 
     public static void main(String[] args) {
 
+
         Scanner s = new Scanner(System.in);
+        // Enter Value of MAtrix 1
         System.out.println("--Enter Detail of Matrix 1 : -- ");
         System.out.print("Enter Rows for Matrix 1 : ");
         int row = s.nextInt();
@@ -73,6 +75,9 @@ public class Program05 {
                 matrix1[i][j] = s.nextInt();
             }
         }
+
+
+        //Enter Value of 2 Matrix
 
         System.out.println("--Detail of Matrix 2 -- ");
         System.out.print("Enter the row of Matrix2 : ");
@@ -95,7 +100,8 @@ public class Program05 {
         display(matrix2);
 
 
-
+        //Addition of 2 Matrix
+        
         if((row == row2) && (col == col2)){
             int [][]additionMatrix = addition(matrix1,matrix2);
             System.out.println("Addition of Matrix : ");
@@ -103,6 +109,9 @@ public class Program05 {
         }else{
             System.out.println("Error : Both Matrix must be Same Size..");
         }
+
+
+        //Substraction of 2 Matrix
         if((row == row2) && (col == col2)){
             int [][]substraction = substraction(matrix1,matrix2);
             System.out.println("Substration of Matrix : ");
@@ -110,6 +119,8 @@ public class Program05 {
         }else{
             System.out.println("Error : Both Matrix must be Same Size..");
         }
+
+        //Multiplication Of 2 Matrix
         if((col == row2)) {
             int [][]multiplicationMatrix = multiplication(matrix1, matrix2);
             System.out.println("Multiplication of Matrix : ");
